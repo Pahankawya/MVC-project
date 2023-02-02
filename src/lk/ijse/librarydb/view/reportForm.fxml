@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="pane" prefHeight="692.0" prefWidth="799.0" style="-fx-background-color: #02030a;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.librarydb.controller.reportFormController">
+   <children>
+      <JFXButton buttonType="RAISED" layoutY="-1.0" onAction="#btnAddOnAction" prefHeight="228.0" prefWidth="799.0" stylesheets="@../style/newButton.css" text="Customer Details Report">
+         <font>
+            <Font name="Baskerville Old Face" size="55.0" />
+         </font></JFXButton>
+      <JFXButton buttonType="RAISED" layoutY="228.0" onAction="#btnUpdateOnAction" prefHeight="197.0" prefWidth="801.0" stylesheets="@../style/newButton.css" text="Supplier Details Report">
+         <font>
+            <Font name="Baskerville Old Face" size="55.0" />
+         </font></JFXButton>
+      <JFXButton buttonType="RAISED" layoutY="426.0" onAction="#btnDeleteOnAction" prefHeight="267.0" prefWidth="801.0" stylesheets="@../style/newButton.css" text="Attendance Details Report">
+         <font>
+            <Font name="Baskerville Old Face" size="55.0" />
+         </font></JFXButton>
+   </children>
+</AnchorPane>

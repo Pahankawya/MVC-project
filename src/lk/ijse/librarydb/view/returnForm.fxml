@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="pane" prefHeight="692.0" prefWidth="799.0" style="-fx-background-color: #02030a;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.librarydb.controller.ReturnFormController">
+    <children>
+        <JFXButton buttonType="RAISED" layoutX="607.0" layoutY="320.0" onAction="#btnAddOnAction" prefHeight="31.0" prefWidth="125.0" stylesheets="@../style/style.css" text="ADD" />
+        <JFXButton buttonType="RAISED" layoutX="607.0" layoutY="371.0" onAction="#btnDeleteOnAction" prefHeight="31.0" prefWidth="125.0" styleClass="button1" stylesheets="@../style/style.css" text="CANCEL" />
+        <Label alignment="CENTER" layoutX="225.0" layoutY="31.0" prefHeight="51.0" prefWidth="352.0" text="Return Books" textFill="#e7e5e5">
+            <font>
+                <Font name="Baskerville Old Face" size="41.0" />
+            </font>
+         <effect>
+            <Glow level="0.44" />
+         </effect>
+        </Label>
+        <VBox layoutX="47.0" layoutY="149.0" prefHeight="254.0" prefWidth="151.0" stylesheets="@../style/style.css">
+            <children>
+                <Label prefHeight="53.0" prefWidth="175.0" text="Customer Id:" textFill="#e7e5e5">
+                    <font>
+                        <Font name="Baskerville Old Face" size="20.0" />
+                    </font></Label>
+                <Label prefHeight="49.0" prefWidth="134.0" text="Book Id:" textFill="#e7e5e5">
+                    <font>
+                        <Font name="Baskerville Old Face" size="20.0" />
+                    </font></Label>
+                <Label prefHeight="53.0" prefWidth="175.0" text="Borrow Date:" textFill="#e7e5e5">
+                    <font>
+                        <Font name="Baskerville Old Face" size="20.0" />
+                    </font></Label>
+                <Label prefHeight="53.0" prefWidth="175.0" text="Return Date:" textFill="#e7e5e5">
+                    <font>
+                        <Font name="Baskerville Old Face" size="20.0" />
+                    </font></Label>
+            <Label layoutX="10.0" layoutY="165.0" prefHeight="53.0" prefWidth="175.0" text="Return Qty:" textFill="#e7e5e5">
+               <font>
+                  <Font name="Baskerville Old Face" size="20.0" />
+               </font>
+            </Label>
+            </children>
+        </VBox>
+        <TableView fx:id="tbl" layoutX="47.0" layoutY="426.0" prefHeight="229.0" prefWidth="685.0" style="-fx-background-color: #05071F;" styleClass="button" stylesheets="@../style/style.css">
+            <columns>
+                <TableColumn fx:id="tblId" prefWidth="89.0" text="ID" />
+                <TableColumn fx:id="tblBookId" prefWidth="149.0" text="Book Id" />
+                <TableColumn fx:id="tblBorrowDate" prefWidth="142.0" text="Borrow Date" />
+                <TableColumn fx:id="tblReturnDate" minWidth="0.0" prefWidth="130.0" text="Return Date" />
+            <TableColumn fx:id="tblQuantity" prefWidth="89.0" text="Quantity" />
+            <TableColumn fx:id="tblDeleteButton" prefWidth="85.0" text="Action" />
+            </columns>
+        </TableView>
+      <JFXComboBox fx:id="cmbCustomerId" layoutX="208.0" layoutY="149.0" prefHeight="31.0" prefWidth="205.0" promptText="Select Cid here!" styleClass="jfx-text-field" stylesheets="@../style/promptText.css" />
+      <JFXComboBox fx:id="cmbBookId" layoutX="208.0" layoutY="202.0" prefHeight="31.0" prefWidth="205.0" promptText="Book id here!" styleClass="jfx-text-field" stylesheets="@../style/promptText.css" />
+      <JFXDatePicker fx:id="cmbborrowDte" layoutX="208.0" layoutY="257.0" promptText="Borrow Date" stylesheets="@../style/promptText.css" />
+      <JFXDatePicker fx:id="cmbReturnDate" layoutX="208.0" layoutY="304.0" prefHeight="31.0" prefWidth="205.0" promptText="Return date !" stylesheets="@../style/promptText.css" />
+      <JFXTextField fx:id="cmbQty" layoutX="208.0" layoutY="355.0" onKeyReleased="#patternPerform" prefHeight="31.0" prefWidth="205.0" promptText="Qty here!" stylesheets="@../style/promptText.css" />
+      <JFXButton buttonType="RAISED" layoutX="605.0" layoutY="218.0" onAction="#btnReturnOnAction" prefHeight="52.0" prefWidth="151.0" stylesheets="@../style/style.css" text="RETURN BOOK">
+         <font>
+            <Font name="Baskerville Old Face" size="16.0" />
+         </font></JFXButton>
+      <Label fx:id="lblUserNameWarning" layoutX="424.0" layoutY="362.0" textFill="RED" />
+    </children>
+</AnchorPane>

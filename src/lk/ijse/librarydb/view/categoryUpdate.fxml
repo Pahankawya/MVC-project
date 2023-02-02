@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="pane" prefHeight="424.0" prefWidth="799.0" style="-fx-background-color: #02030a;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.librarydb.controller.BookCategoryUpdateController">
+   <children>
+      <JFXTextField fx:id="txtTitle" layoutX="245.0" layoutY="126.0" onAction="#btnTitleOnActionTextField" onKeyReleased="#txttitleOnAction" promptText="B.Title here!" styleClass="button3" stylesheets="@../style/style.css" unFocusColor="#e7e5e5" />
+      <JFXTextField fx:id="txtAuthor" layoutX="245.0" layoutY="218.0" onAction="#btnAuthorOnActionTextField" onKeyReleased="#txtPriceOnAction" promptText="B.Author here!" styleClass="button3" stylesheets="@../style/style.css" unFocusColor="#e7e5e5" />
+      <JFXButton fx:id="FXIDnAddonactionId" buttonType="RAISED" layoutX="607.0" layoutY="229.0" onAction="#btnAddOnAction" prefHeight="31.0" prefWidth="125.0" stylesheets="@../style/style.css" text="ADD" />
+      <JFXButton fx:id="FXIDupdate" buttonType="RAISED" layoutX="607.0" layoutY="282.0" onAction="#btnUpdateOnAction" prefHeight="31.0" prefWidth="125.0" stylesheets="@../style/style.css" text="UPDATE" />
+      <JFXButton fx:id="FXIDdelete" buttonType="RAISED" layoutX="607.0" layoutY="331.0" onAction="#btnDeleteOnAction" prefHeight="31.0" prefWidth="125.0" styleClass="button1" stylesheets="@../style/style.css" text="DELETE" />
+      <JFXTextField fx:id="txtType" layoutX="245.0" layoutY="168.0" onAction="#btnTypeOnActionTextField" onKeyReleased="#txtIdOnAction" promptText="B.Type here!" styleClass="button3" stylesheets="@../style/style.css" unFocusColor="#e7e5e5" />
+      <JFXButton fx:id="btnsearch" buttonType="RAISED" layoutX="706.0" layoutY="149.0" onAction="#btnSearchOnAction" prefHeight="31.0" prefWidth="1.0" stylesheets="@../style/style.css" text="search">
+         <font>
+            <Font size="1.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="26.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assests/logo/OIP-removebg-preview.png" />
+               </image>
+            </ImageView>
+         </graphic></JFXButton>
+      <VBox layoutX="50.0" layoutY="117.0" prefHeight="297.0" prefWidth="174.0" stylesheets="@../style/style.css">
+         <children>
+            <Label prefHeight="49.0" prefWidth="134.0" text="Book Title:" textFill="#e7e5e5">
+               <font>
+                  <Font name="Baskerville Old Face" size="18.0" />
+               </font></Label>
+            <Label prefHeight="49.0" prefWidth="134.0" text="Book Type:" textFill="#e7e5e5">
+               <font>
+                  <Font name="Baskerville Old Face" size="18.0" />
+               </font>
+            </Label>
+            <Label prefHeight="49.0" prefWidth="134.0" text="Book Author:" textFill="#e7e5e5">
+               <font>
+                  <Font name="Baskerville Old Face" size="18.0" />
+               </font>
+            </Label>
+            <Label prefHeight="49.0" prefWidth="165.0" text="Book Published Date:" textFill="#e7e5e5">
+               <font>
+                  <Font name="Baskerville Old Face" size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+      <TextField fx:id="txtID1" layoutX="514.0" layoutY="149.0" onAction="#searchOnAction" promptText="Search Title here!" />
+      <Label layoutX="281.0" layoutY="33.0" prefHeight="54.0" prefWidth="308.0" text="Category Update" textFill="#e7e5e5">
+         <font>
+            <Font name="Baskerville Old Face" size="45.0" />
+         </font>
+         <effect>
+            <Glow level="0.41" />
+         </effect>
+      </Label>
+      <Label fx:id="lblUserNameWarning" layoutX="365.0" layoutY="130.0" textFill="RED" />
+      <Label fx:id="lblUserNameWarning1" layoutX="364.0" layoutY="172.0" textFill="RED" />
+      <Label fx:id="lblUserNameWarning2" layoutX="363.0" layoutY="221.0" textFill="RED" />
+      <JFXDatePicker fx:id="txtDate" layoutX="245.0" layoutY="273.0" onAction="#btnDateOnActionTextField" onKeyReleased="#txtTypeOnAction" prefHeight="25.0" prefWidth="135.0" />
+   </children>
+</AnchorPane>

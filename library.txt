@@ -1,0 +1,244 @@
+CREATE DATABASE LibraryDb;
+
+SHOW databases;
+
+USE LibraryDb;
+
+CREATE TABLE Books(
+  	Book_id VARCHAR(15),
+	Book_title VARCHAR(45),
+	Book_price double,
+	type VARCHAR(25),
+	QTY INT NOT NULL,
+	CONSTRAINT PRIMARY KEY (Book_id)
+);
+SHOW TABLES;
+DESC Books;
+INSERT INTO Books VALUES('B001','Lord of the rings','2000','Fantasy','12');
+INSERT INTO Books VALUES('B002','Gotham Knights','1500','Horror','22');
+INSERT INTO Books VALUES('B004','Martha','1500','Thriller','21');
+SELECT * FROM Books;
+
+	
+
+CREATE TABLE Books_Category(
+	Book_title VARCHAR(45),
+	Book_type VARCHAR(25),
+	Book_Author VARCHAR(45),
+	Published_date DATE
+
+);
+INSERT INTO books_Category VALUES('Lord of the rings','Fantasy','Mr.nirmal wijeweera',now());
+INSERT INTO books_Category VALUES('dummies','Fantasy','nimal',now());
+CREATE TABLE Librarian(
+	Librarian_id VARCHAR(15),
+	name VARCHAR(25),
+	age int,
+	nic VARCHAR(20),
+	phone_no int,
+	address VARCHAR(45),
+	userName VARCHAR(45),
+	password VARCHAR(45),
+	CONSTRAINT PRIMARY KEY(Librarian_id)
+);
+SHOW TABLES;
+DESC Librarian;
+INSERT INTO Librarian VALUES('L001','Samantha','24','199811990022','0774380082','Galle','samantha@','niceday');
+SELECT * FROM Librarian;
+		
+CREATE TABLE Staff(
+	Sid VARCHAR(15),
+	firstname VARCHAR(25),
+	lastname VARCHAR(25),
+	age int,
+	nic VARCHAR(20),
+	phone_no int,
+	address VARCHAR(45),
+	userName VARCHAR(45),
+	password VARCHAR(45),
+	CONSTRAINT PRIMARY KEY(Sid)
+);
+SHOW TABLES;
+DESC Staff;
+INSERT INTO Staff VALUES('S001','Nimal','wijeweera','22','200011990011','0782380082','Galle','nimal@','nimal1234');
+SELECT * FROM Staff;
+
+CREATE TABLE Customer(
+	Cusid VARCHAR(15),
+	name VARCHAR(25),
+	age int,
+	phone_no int,
+	address VARCHAR(50),
+	email VARCHAR(50),
+	CONSTRAINT PRIMARY KEY(Cusid)  
+);
+SHOW TABLES;
+DESC Customer;
+INSERT INTO Customer VALUES('C012','Sadun','20','0713380081','Wackwella','sadun@gmail.com');
+INSERT INTO Customer VALUES('C011','Sadun','20','0781529211','Galle','sadun@gmail.com');
+INSERT INTO Customer VALUES('C003','Sadun','20','0781529211','Galle','sadun@gmail.com');
+
+
+SELECT * FROM Customer;
+
+
+CREATE TABLE Payment(
+	payment_id VARCHAR(15),
+	time time,
+	date date,
+	book_id VARCHAR(15),
+	cusid VARCHAR(15),
+	CONSTRAINT PRIMARY KEY(payment_id),
+	CONSTRAINT FOREIGN KEY(cusid ) REFERENCES Customer(Cusid),
+	CONSTRAINT FOREIGN KEY(book_id) REFERENCES Books(Book_id)
+);
+SHOW TABLES;
+DESC Payment;
+INSERT INTO Payment VALUES('P001',now(),now(),'B001','C011');
+SELECT * FROM Payment;
+
+
+CREATE TABLE Supplier(
+	supplierId VARCHAR(15),
+	name VARCHAR(25),
+	age int,
+	address VARCHAR(45),
+	phone_no int,
+	CONSTRAINT PRIMARY KEY(supplierId)
+	
+);
+SHOW TABLES;
+DESC Supplier;
+INSERT INTO Supplier VALUES('SP01','Sahas','19','Colombo','0781920032');
+SELECT * FROM Supplier;
+
+
+CREATE TABLE SupplyDetails(
+	SupplydId VARCHAR(15),
+	supplierId VARCHAR(15),
+	type VARCHAR(20),
+	Qty int,
+	CONSTRAINT FOREIGN KEY(supplierId) REFERENCES Supplier(supplierId)
+
+);
+
+SHOW TABLES;
+DESC SupplyDetails;
+INSERT INTO SupplyDetails VALUES('SPD1','SP01','Horror','11');
+SELECT * FROM SupplyDetails;
+
+CREATE TABLE Attendance(
+	sid VARCHAR(15),
+	Date date,
+	int_time time,
+	out_time time,
+	CONSTRAINT FOREIGN KEY(sid) REFERENCES Staff(Sid)
+);
+SHOW TABLES;
+DESC Attendance;
+INSERT INTO Attendance VALUES('S001',now(),now(),now());
+SELECT * FROM Attendance;
+	
+CREATE TABLE Stock(
+	stockId VARCHAR(15),
+	Book_id VARCHAR(15),
+	type VARCHAR(25),
+	qty int,
+	CONSTRAINT PRIMARY KEY(stockId),
+	CONSTRAINT FOREIGN KEY(Book_id) REFERENCES Books(Book_id)
+	
+);
+SHOW TABLES;
+DESC Stock;
+INSERT INTO Stock VALUES('ST01','B001','Fantasy','10');
+SELECT * FROM Stock;
+	
+	
+CREATE TABLE Reports(
+	report_id VARCHAR(15),
+	cusid VARCHAR(15),
+	book_id VARCHAR(15),
+	payment_date date,
+	payment VARCHAR(15),
+	return_Date date,
+	CONSTRAINT PRIMARY KEY(report_id),
+	CONSTRAINT FOREIGN KEY(cusid ) REFERENCES Customer(Cusid),
+	CONSTRAINT FOREIGN KEY(book_id) REFERENCES Books(Book_id)
+);
+SHOW TABLES;
+DESC Reports;
+INSERT INTO Reports VALUES('R001','C011','B001',now(),'200',now());
+SELECT * FROM Reports;
+
+CREATE TABLE borrow(
+	
+	brwId VARCHAR(15) PRIMARY KEY,
+	cusid VARCHAR(15),
+	borrow_date date,
+	CONSTRAINT FOREIGN KEY(cusid ) REFERENCES Customer(Cusid) ON DELETE CASCADE ON UPDATE CASCADE
+);
+SHOW TABLES;
+DESC borrow;
+INSERT INTO borrow VALUES('D001','C011',now());
+INSERT INTO borrow VALUES('D002','C012',now());
+INSERT INTO borrow VALUES('D003','C012',now());
+INSERT INTO borrow VALUES('D004','C011',now());
+INSERT INTO borrow VALUES('D005','C011',now());
+INSERT INTO borrow VALUES('D006','C012',now());
+INSERT INTO borrow VALUES('D007','C012',now());
+INSERT INTO borrow VALUES('D008','C012',now());
+INSERT INTO borrow VALUES('D009','C012',now());
+INSERT INTO borrow VALUES('D010','C012',now());
+SELECT * FROM borrow;
+
+CREATE TABLE borrowdetail(
+	
+	brwId VARCHAR(15),
+	book_id VARCHAR(15),
+	Qty  int,
+	Book_price double,
+	CONSTRAINT PRIMARY KEY (brwId ,book_id ),
+	CONSTRAINT FOREIGN KEY(brwId ) REFERENCES borrow(brwId ) ON DELETE CASCADE ON UPDATE CASCADE,
+	FOREIGN KEY(book_id) REFERENCES Books(Book_id) ON DELETE CASCADE ON UPDATE CASCADE
+);
+SHOW TABLES;
+DESC borrow;
+INSERT INTO borrowdetail VALUES('D001','B001','77','5000'); 
+INSERT INTO borrowdetail VALUES('D002','B002','11','4500');
+INSERT INTO borrowdetail VALUES('D003','B001','57','2100');
+INSERT INTO borrowdetail VALUES('D004','B002','67','2000');
+INSERT INTO borrowdetail VALUES('D005','B002','21','5000');
+INSERT INTO borrowdetail VALUES('D006','B001','51','4000');
+INSERT INTO borrowdetail VALUES('D007','B002','21','7000');
+INSERT INTO borrowdetail VALUES('D008','B001','89','2000');
+INSERT INTO borrowdetail VALUES('D009','B002','10','5000');
+INSERT INTO borrowdetail VALUES('D010','B002','21','4000');
+
+CREATE TABLE returnBook(
+	cusid VARCHAR(15) ,
+	book_id VARCHAR(15) ,
+	return_date date,
+	CONSTRAINT PRIMARY KEY (cusid ,book_id ),
+	CONSTRAINT FOREIGN KEY(cusid ) REFERENCES Customer(Cusid)ON DELETE CASCADE ON UPDATE CASCADE,
+	FOREIGN KEY(book_id) REFERENCES Books(Book_id)ON DELETE CASCADE ON UPDATE CASCADE
+);
+SHOW TABLES;
+DESC returnBook;
+INSERT INTO returnBook VALUES('C011','B001',now());
+SELECT * FROM returnBook ;
+
+CREATE TABLE returnBookDetail(
+	cusid VARCHAR(15),
+	book_id VARCHAR(15),
+	borrow_date date,
+	Qty int,
+	CONSTRAINT PRIMARY KEY (cusid ,book_id ),
+	CONSTRAINT FOREIGN KEY(cusid ) REFERENCES Customer(Cusid) ON DELETE CASCADE ON UPDATE CASCADE,
+	FOREIGN KEY(book_id) REFERENCES Books(Book_id) ON DELETE CASCADE ON UPDATE CASCADE
+);
+SHOW TABLES;
+DESC returnBook;
+INSERT INTO returnBookDetail VALUES('C011','B001',now(),'12');
+SELECT * FROM returnBookDetail;
+
+

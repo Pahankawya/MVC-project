@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import java.net.URL?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="pane" prefHeight="692.0" prefWidth="799.0" style="-fx-background-color: #02030a;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.librarydb.controller.customerManagementController">
+   <children>
+      <JFXTextField fx:id="txtName" layoutX="232.0" layoutY="176.0" onAction="#NameOnAction" onKeyReleased="#txtUserNameKeyTypedOnAction" promptText="Name here!" styleClass="button3" unFocusColor="#e7e5e5">
+         <stylesheets>
+            <URL value="@../style/style.css" />
+            <URL value="@../style/promptText.css" />
+         </stylesheets></JFXTextField>
+      <JFXTextField fx:id="txtAge" layoutX="232.0" layoutY="226.0" onAction="#AgeOnAction" onKeyReleased="#txtUserAgeKeyTypedOnAction" promptText="Age here!" styleClass="button3" unFocusColor="#e7e5e5">
+         <stylesheets>
+            <URL value="@../style/style.css" />
+            <URL value="@../style/promptText.css" />
+         </stylesheets></JFXTextField>
+      <JFXTextField fx:id="txtPhone" layoutX="232.0" layoutY="273.0" onAction="#contactOnAction" onKeyReleased="#txtUserContactKeyTypedOnAction" promptText="Contact No. here!" styleClass="button3" unFocusColor="#e7e5e5">
+         <stylesheets>
+            <URL value="@../style/style.css" />
+            <URL value="@../style/promptText.css" />
+         </stylesheets></JFXTextField>
+      <JFXTextField fx:id="txtAdd" layoutX="232.0" layoutY="322.0" onAction="#AddressOnAction" onKeyReleased="#txtUserAddressKeyTypedOnAction" promptText="Address here!" styleClass="button3" unFocusColor="#e7e5e5">
+         <stylesheets>
+            <URL value="@../style/style.css" />
+            <URL value="@../style/promptText.css" />
+         </stylesheets></JFXTextField>
+      <JFXTextField fx:id="txtMail" layoutX="232.0" layoutY="368.0" onKeyReleased="#txtUserMailKeyTypedOnAction" promptText="E-mail here!" styleClass="button3" unFocusColor="#e7e5e5">
+         <stylesheets>
+            <URL value="@../style/style.css" />
+            <URL value="@../style/promptText.css" />
+         </stylesheets></JFXTextField>
+      <JFXButton buttonType="RAISED" layoutX="607.0" layoutY="238.0" onAction="#btnAddOnAction" prefHeight="31.0" prefWidth="125.0" stylesheets="@../style/style.css" text="ADD" />
+      <JFXButton buttonType="RAISED" layoutX="607.0" layoutY="282.0" onAction="#btnUpdateOnAction" prefHeight="31.0" prefWidth="125.0" stylesheets="@../style/style.css" text="UPDATE" />
+      <JFXButton buttonType="RAISED" layoutX="607.0" layoutY="331.0" onAction="#btnDeleteOnAction" prefHeight="31.0" prefWidth="125.0" styleClass="button1" stylesheets="@../style/style.css" text="DELETE" />
+      <JFXTextField fx:id="txtID" focusColor="#e7e5e5" layoutX="232.0" layoutY="126.0" onAction="#idOnAction" onKeyReleased="#txtUserIdKeyTypedOnAction" promptText="Id here!" styleClass="button3" unFocusColor="#e7e5e5">
+         <stylesheets>
+            <URL value="@../style/style.css" />
+            <URL value="@../style/promptText.css" />
+         </stylesheets></JFXTextField>
+      <Label alignment="CENTER" layoutX="225.0" layoutY="31.0" prefHeight="51.0" prefWidth="359.0" text="Customer Registration" textFill="#e7e5e5">
+         <font>
+            <Font name="Baskerville Old Face" size="40.0" />
+         </font>
+         <effect>
+            <Glow level="0.53" />
+         </effect>
+      </Label>
+      <VBox layoutX="47.0" layoutY="118.0" prefHeight="297.0" prefWidth="173.0" stylesheets="@../style/style.css">
+         <children>
+            <Label prefHeight="53.0" prefWidth="175.0" text="Customer Id:" textFill="#e7e5e5">
+               <font>
+                  <Font name="Baskerville Old Face" size="22.0" />
+               </font></Label>
+            <Label prefHeight="53.0" prefWidth="175.0" text="Customer Name:" textFill="#e7e5e5">
+               <font>
+                  <Font name="Baskerville Old Face" size="22.0" />
+               </font>
+            </Label>
+            <Label prefHeight="53.0" prefWidth="175.0" text="Customer Age:" textFill="#e7e5e5">
+               <font>
+                  <Font name="Baskerville Old Face" size="22.0" />
+               </font>
+            </Label>
+            <Label prefHeight="53.0" prefWidth="175.0" text="Customer Mobile:" textFill="#e7e5e5">
+               <font>
+                  <Font name="Baskerville Old Face" size="22.0" />
+               </font>
+            </Label>
+            <Label prefHeight="53.0" prefWidth="175.0" text="Customer Address:" textFill="#e7e5e5">
+               <font>
+                  <Font name="Baskerville Old Face" size="22.0" />
+               </font>
+            </Label>
+            <Label prefHeight="53.0" prefWidth="175.0" text="Customer Mail:" textFill="#e7e5e5">
+               <font>
+                  <Font name="Baskerville Old Face" size="22.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+      <TableView fx:id="tbl" layoutX="47.0" layoutY="426.0" prefHeight="229.0" prefWidth="685.0" style="-fx-background-color: #05071F;" styleClass="button" stylesheets="@../style/style.css">
+        <columns>
+          <TableColumn fx:id="tblId" prefWidth="75.0" text="ID" />
+          <TableColumn fx:id="tblName" prefWidth="98.0" text="Name" />
+            <TableColumn fx:id="tblAge" prefWidth="76.0" text="Age" />
+            <TableColumn fx:id="tblPhone" prefWidth="136.0" text="Phone No." />
+            <TableColumn fx:id="tblAdd" prefWidth="162.0" text="Address" />
+            <TableColumn fx:id="tblMail" prefWidth="137.0" text="E-mail" />
+        </columns>
+      </TableView>
+      <TextField fx:id="txtIdSearch" layoutX="506.0" layoutY="157.0" onAction="#searchIdOnAction" onKeyReleased="#txtUserSearchKeyTypedOnAction" promptText="Search ID here!" />
+      <JFXButton fx:id="searchIcon" buttonType="RAISED" layoutX="699.0" layoutY="157.0" onAction="#btnSearchOnAction" prefHeight="31.0" prefWidth="16.0" stylesheets="@../style/style.css" text=".">
+         <font>
+            <Font size="1.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="26.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assests/logo/OIP-removebg-preview.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <Label fx:id="lblUserNameWarning" layoutX="374.0" layoutY="130.0" textFill="RED" />
+      <Label fx:id="lblUserNameWarning1" layoutX="373.0" layoutY="174.0" textFill="RED" />
+      <Label fx:id="lblUserNameWarning2" layoutX="373.0" layoutY="230.0" textFill="RED" />
+      <Label fx:id="lblUserNameWarning3" layoutX="372.0" layoutY="274.0" textFill="RED" />
+      <Label fx:id="lblUserNameWarning4" layoutX="371.0" layoutY="323.0" textFill="RED" />
+      <Label fx:id="lblUserNameWarning5" layoutX="373.0" layoutY="372.0" textFill="RED" />
+   </children>
+</AnchorPane>

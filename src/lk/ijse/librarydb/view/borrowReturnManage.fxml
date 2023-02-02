@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import java.net.URL?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="pane" prefHeight="692.0" prefWidth="799.0" style="-fx-background-color: #02030a;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.librarydb.controller.borrowManageController">
+   <children>
+      <Label layoutX="14.0" layoutY="121.0" text="Borrow ID:" textFill="#e7e5e5">
+         <font>
+            <Font name="Baskerville Old Face" size="19.0" />
+         </font>
+         <effect>
+            <Glow level="0.59" />
+         </effect>
+      </Label>
+      <Label fx:id="lblOrderId" layoutX="139.0" layoutY="119.0" textFill="#22a3ff">
+         <font>
+            <Font name="Baskerville Old Face" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="14.0" layoutY="178.0" text="Borrow Date:" textFill="#e7e5e5">
+         <font>
+            <Font name="Baskerville Old Face" size="19.0" />
+         </font>
+         <effect>
+            <Glow level="0.59" />
+         </effect>
+      </Label>
+      <Label fx:id="lblOrderDate" layoutX="149.0" layoutY="175.0" textFill="#22a3ff">
+         <font>
+            <Font name="Baskerville Old Face" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="337.0" layoutY="117.0" text="Customer ID:" textFill="#e7e5e5">
+         <font>
+            <Font name="Baskerville Old Face" size="19.0" />
+         </font>
+         <effect>
+            <Glow level="0.59" />
+         </effect>
+      </Label>
+      <JFXComboBox fx:id="cmbCustomerId" focusColor="#1411a1" layoutX="462.0" layoutY="100.0" onAction="#cmbCusIDOnAction" prefHeight="33.0" prefWidth="171.0" promptText="Select Customer Id" styleClass="jfx-text-field" unFocusColor="#e4d4d4">
+         <stylesheets>
+            <URL value="@../style/promptText.css" />
+            <URL value="@../style/comboboxTry.css" />
+         </stylesheets></JFXComboBox>
+      <Label layoutX="337.0" layoutY="167.0" text="Customer Name:" textFill="#e7e5e5">
+         <font>
+            <Font name="Baskerville Old Face" size="19.0" />
+         </font>
+         <effect>
+            <Glow level="0.59" />
+         </effect>
+      </Label>
+      <Label fx:id="lblCustomerName" layoutX="500.0" layoutY="166.0" textFill="#22a3ff">
+         <font>
+            <Font name="Baskerville Old Face" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="14.0" layoutY="233.0" text="Book ID:" textFill="#e7e5e5">
+         <font>
+            <Font name="Baskerville Old Face" size="19.0" />
+         </font>
+         <effect>
+            <Glow level="0.59" />
+         </effect>
+      </Label>
+      <JFXComboBox fx:id="cmbItemCode" focusColor="#1411a1" layoutX="14.0" layoutY="261.0" onAction="#cmbBookItemOnAction" prefHeight="33.0" prefWidth="126.0" promptText="Select Book Id" styleClass="jfx-text-field" unFocusColor="#e1d5d5">
+         <stylesheets>
+            <URL value="@../style/comboboxTry.css" />
+            <URL value="@../style/promptText.css" />
+         </stylesheets></JFXComboBox>
+      <Label layoutX="215.0" layoutY="231.0" text="Book Title:" textFill="#e7e5e5">
+         <font>
+            <Font name="Baskerville Old Face" size="19.0" />
+         </font>
+         <effect>
+            <Glow level="0.59" />
+         </effect>
+      </Label>
+      <Label fx:id="lblDescription" layoutX="205.0" layoutY="268.0" textFill="#22a3ff">
+         <font>
+            <Font name="Baskerville Old Face" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="377.0" layoutY="231.0" text="Book Price:" textFill="#e7e5e5">
+         <font>
+            <Font name="Baskerville Old Face" size="19.0" />
+         </font>
+         <effect>
+            <Glow level="0.59" />
+         </effect>
+      </Label>
+      <Label fx:id="lblBookPrice" layoutX="399.0" layoutY="268.0" textFill="#22a3ff">
+         <font>
+            <Font name="Baskerville Old Face" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="719.0" layoutY="223.0" text="Qty:" textFill="#eee7e7">
+         <font>
+            <Font name="Baskerville Old Face" size="19.0" />
+         </font>
+         <effect>
+            <Glow level="0.59" />
+         </effect>
+      </Label>
+      <TextField fx:id="txtQty" layoutX="701.0" layoutY="253.0" onAction="#txtQtyOnAction" prefHeight="33.0" prefWidth="66.0" />
+      <TableView fx:id="tblOrderCart" layoutX="14.0" layoutY="338.0" prefHeight="273.0" prefWidth="759.0" style="-fx-background-color: #05071F;" styleClass="button1" stylesheets="@../style/style.css">
+         <columns>
+            <TableColumn fx:id="colItemCode" prefWidth="75.0" text="Book ID" />
+            <TableColumn fx:id="colDescription" prefWidth="191.0" text="Book Title" />
+            <TableColumn fx:id="colQty" prefWidth="81.0" text="Qty" />
+            <TableColumn fx:id="colUnitPrice" prefWidth="172.0" text="Book Price" />
+            <TableColumn fx:id="colTotal" prefWidth="112.0" text="Total" />
+            <TableColumn fx:id="colAction" prefWidth="127.0" text="Action" />
+         </columns>
+      </TableView>
+      <JFXButton buttonType="RAISED" layoutX="659.0" layoutY="298.0" onAction="#btnAddToCartOnAction" prefHeight="33.0" prefWidth="120.0" styleClass="button1" stylesheets="@../style/style.css" text="Add" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="Baskerville Old Face" size="16.0" />
+         </font>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="511.0" layoutY="632.0" onAction="#btnPlaceOrderOnAction" prefHeight="34.0" prefWidth="120.0" stylesheets="@../style/style.css" text="Borrow" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font size="18.0" />
+         </font>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="664.0" layoutY="113.0" onAction="#btnNewCustomerOnAction" prefHeight="21.0" prefWidth="74.0" stylesheets="@../style/style.css" text="NEW" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="Baskerville Old Face" size="16.0" />
+         </font>
+      </JFXButton>
+      <Label alignment="CENTER" layoutX="188.0" layoutY="36.0" prefHeight="51.0" prefWidth="352.0" text="Order Manage" textFill="#e7e5e5">
+         <font>
+            <Font name="Baskerville Old Face" size="36.0" />
+         </font>
+         <effect>
+            <Glow level="0.49" />
+         </effect>
+      </Label>
+      <Label layoutX="527.0" layoutY="231.0" text="Qty. On hand" textFill="#e7e5e5">
+         <font>
+            <Font name="Baskerville Old Face" size="19.0" />
+         </font>
+         <effect>
+            <Glow level="0.59" />
+         </effect>
+      </Label>
+      <Label fx:id="lblQtyOnHand" layoutX="547.0" layoutY="268.0" textFill="#22a3ff">
+         <font>
+            <Font name="Baskerville Old Face" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="125.0" layoutY="634.0" text="Rs.">
+         <font>
+            <Font name="Baskerville Old Face" size="23.0" />
+         </font>
+      </Label>
+      <Label layoutX="56.0" layoutY="634.0" text="Total - " textFill="#f80000">
+         <font>
+            <Font name="Baskerville Old Face" size="23.0" />
+         </font>
+      </Label>
+      <Label fx:id="TotalLbl" layoutX="163.0" layoutY="634.0" prefHeight="30.0" prefWidth="105.0" textFill="#52b9f5">
+         <font>
+            <Font name="Baskerville Old Face" size="23.0" />
+         </font>
+      </Label>
+      <JFXButton buttonType="RAISED" layoutX="653.0" layoutY="632.0" onAction="#btnClearOnAction" prefHeight="34.0" prefWidth="120.0" styleClass="button1" stylesheets="@../style/style.css" text="CLEAR" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="Baskerville Old Face" size="16.0" />
+         </font>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="362.0" layoutY="632.0" onAction="#btnPrinOnAction" prefHeight="34.0" prefWidth="120.0" stylesheets="@../style/style.css" text="Print a bill" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font size="18.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>

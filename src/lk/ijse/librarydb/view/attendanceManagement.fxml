@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXTimePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="pane" prefHeight="692.0" prefWidth="799.0" style="-fx-background-color: #02030a;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.librarydb.controller.attendanceManagementController">
+   <children>
+      <JFXButton buttonType="RAISED" layoutX="653.0" layoutY="313.0" onAction="#btnAddOnAction" prefHeight="31.0" prefWidth="125.0" stylesheets="@../style/style.css" text="SAVE" />
+      <JFXButton buttonType="RAISED" layoutX="653.0" layoutY="368.0" onAction="#btnDeleteOnAction" prefHeight="31.0" prefWidth="125.0" styleClass="button1" stylesheets="@../style/style.css" text="DELETE" />
+      <Label alignment="CENTER" layoutX="225.0" layoutY="31.0" prefHeight="51.0" prefWidth="352.0" text="Attendance Mark" textFill="#e7e5e5">
+         <font>
+            <Font name="Baskerville Old Face" size="38.0" />
+         </font>
+         <effect>
+            <Glow level="0.49" />
+         </effect>
+      </Label>
+      <VBox layoutX="50.0" layoutY="117.0" prefHeight="297.0" prefWidth="151.0" stylesheets="@../style/style.css">
+         <children>
+            <Label prefHeight="49.0" prefWidth="134.0" text="Employe ID:" textFill="#e7e5e5">
+               <font>
+                  <Font name="Baskerville Old Face" size="20.0" />
+               </font>
+            </Label>
+            <Label prefHeight="53.0" prefWidth="175.0" text="Date:" textFill="#e7e5e5">
+               <font>
+                  <Font name="Baskerville Old Face" size="20.0" />
+               </font>
+            </Label>
+            <Label prefHeight="53.0" prefWidth="175.0" text="In Time:" textFill="#e7e5e5">
+               <font>
+                  <Font name="Baskerville Old Face" size="20.0" />
+               </font>
+            </Label>
+            <Label prefHeight="53.0" prefWidth="175.0" text="Out Time:" textFill="#e7e5e5">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+      <TableView fx:id="tbl" layoutX="47.0" layoutY="426.0" prefHeight="229.0" prefWidth="731.0" style="-fx-background-color: #05071F;" styleClass="button" stylesheets="@../style/style.css">
+         <columns>
+            <TableColumn fx:id="tblId" prefWidth="106.0" text="ID" />
+            <TableColumn fx:id="tblDate" prefWidth="165.0" text="Date" />
+            <TableColumn fx:id="tblInTime" prefWidth="260.0" text="In Time" />
+            <TableColumn fx:id="tblOuttime" prefWidth="199.0" text="Out Time" />
+         </columns>
+      </TableView>
+      <JFXComboBox fx:id="cmbId" layoutX="221.0" layoutY="130.0" prefHeight="31.0" prefWidth="171.0" promptText="Select Id from here!" styleClass="jfx-text-field" stylesheets="@../style/promptText.css" />
+      <JFXDatePicker fx:id="dteDate" layoutX="222.0" layoutY="176.0" prefHeight="31.0" prefWidth="208.0" promptText="Date here!" stylesheets="@../style/promptText.css" />
+      <JFXTimePicker fx:id="cmbTime" layoutX="217.0" layoutY="235.0" prefHeight="25.0" prefWidth="208.0" promptText="In time here!" stylesheets="@../style/promptText.css" />
+      <JFXTimePicker fx:id="cmbOutTime" layoutX="217.0" layoutY="288.0" prefHeight="25.0" prefWidth="208.0" promptText="Out time here!" stylesheets="@../style/promptText.css" />
+   </children>
+</AnchorPane>
